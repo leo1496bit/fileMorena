@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FileController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+    <h1 class="title">Formulaire transfert fichier</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="form">
+        <div>
+            <label for="myfile"><div class="upload">
+               <p> Ajouter une image <img src="images/upload.png" alt="" width="15" height="15"></p></div></label>
+            <input type="file" name="myfile" id="myfile">
+        </div>
+        
+        <div>
+            <button type="submit" class="submit">Envoyer</button> 
+            {% if error == 1 %}
+            <span class="error">ce fichier ne peut etre enregistré</span>
+            {% endif %}
+        </div>    
+    </div>
+    
+</form>
+<div class="img-list">
+    
+    {% for i in 0..nom-1 %}
+    <div>
+    <img src= {{ "%s%d%s" | format("images/image", i,".jpg") }} alt="" width>
+    </div>
+    {% endfor %}
+    
+</div>
+{% endblock %}
